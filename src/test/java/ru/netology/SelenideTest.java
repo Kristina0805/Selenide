@@ -31,7 +31,8 @@ public class SelenideTest {
         $x("//input [@name ='phone']").setValue("+79227280798");
         $("[data-test-id='agreement']").click();
         $("[type='button'] .button__text").click();
-        $x("//*[contains(text(),'Успешно!')]").should(visible, Duration.ofSeconds(15));
+        $x("//div[@class='notification notification_visible notification_has-closer notification_stick-to_right notification_theme_alfa-on-white']").
+                should(visible, Duration.ofSeconds(15));
         $(".notification__content")
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
