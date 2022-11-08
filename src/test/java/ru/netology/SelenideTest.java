@@ -18,15 +18,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideTest {
 
-    @BeforeAll
-    static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
-    }
+
     public String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
+
     @Test
-    void test1(){
+    void test1() {
         String planningDate = generateDate(15);
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
@@ -45,8 +43,7 @@ public class SelenideTest {
                 .shouldBe(Condition.visible);
 
 
-
     }
 
-    
+
 }
